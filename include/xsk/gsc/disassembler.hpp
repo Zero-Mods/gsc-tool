@@ -26,6 +26,9 @@ public:
     auto disassemble(std::vector<u8> const& script, std::vector<u8> const& stack) -> assembly::ptr;
     auto disassemble(u8 const* script, usize script_size, u8 const* stack, usize stack_size) -> assembly::ptr;
 
+    using decrypt_string_t = std::string(const std::string&);
+    static inline decrypt_string_t* decrypt_string_func = nullptr;
+
 private:
     auto dissasemble_function(function& func) -> void;
     auto dissasemble_instruction(instruction& inst) -> void;

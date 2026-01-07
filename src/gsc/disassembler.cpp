@@ -613,6 +613,11 @@ auto disassembler::decrypt_string(std::string const& str) -> std::string
         return str;
     }
 
+    if (decrypt_string_func)
+    {
+        return decrypt_string_func(str);
+    }
+
     auto data = "_encstr_"s;
 
     data.reserve(str.size() * 2);
